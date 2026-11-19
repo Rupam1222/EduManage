@@ -1,0 +1,10 @@
+# Crontab alternative to the systemd timer. Install with: crontab -e
+# Replace paths and user with your deployment values.
+SHELL=/bin/bash
+PATH=/usr/local/bin:/usr/bin:/bin
+
+# Subscription expiry / 7-3-1 day reminders (daily, 01:15)
+15 1 * * * cd /srv/edumanage && /srv/edumanage/.venv/bin/python manage.py monitor_subscriptions >> /var/log/edumanage/monitor.log 2>&1
+
+# Database backup (daily, 02:00); keep 14 days in /var/backups/edumanage
+0 2 * * * cd /srv/edumanage && /srv/edumanage/.venv/bin/python manage.py backup_database --dir /var/backups/edumanage >> /var/log/edumanage/backup.log 2>&1 && find /var/backups/edumanage -type f -mtime +14 -delete
