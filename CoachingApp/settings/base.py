@@ -67,6 +67,7 @@ LOCAL_APPS = [
     "notifications.apps.NotificationsConfig",
     "reports.apps.ReportsConfig",
     "activity_logs.apps.ActivityLogsConfig",
+     'core',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
