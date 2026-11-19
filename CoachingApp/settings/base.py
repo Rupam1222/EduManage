@@ -68,6 +68,7 @@ LOCAL_APPS = [
     "reports.apps.ReportsConfig",
     "activity_logs.apps.ActivityLogsConfig",
      'core',
+    'CoachingApp.core',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
